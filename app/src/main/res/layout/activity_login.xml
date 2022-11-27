@@ -48,6 +48,17 @@
             android:layout_marginBottom="30dp"
             android:text="@string/signin_email"
             android:theme="@style/ButtonStyle" />
+        <Button
+            android:id="@+id/email_sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/sign_up"
+            android:theme="@style/ButtonStyle" />
+
 
 
     </LinearLayout>

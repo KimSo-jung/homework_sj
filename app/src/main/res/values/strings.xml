@@ -45,6 +45,8 @@
 
     <!-- Toolbar -->
     <string name="back">Back</string>
+    <string name="sign_up">sign up</string>
+    <string name="submit">submit</string>
 
     <!-- etc -->
     <item name="visible" type="id" />
