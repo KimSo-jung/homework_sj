@@ -45,7 +45,7 @@ class UserFragment : Fragment(){
         var PICK_PROFILE_FROM_ALBUM = 10
     }
 
-    @SuppressLint("UseRequireInsteadOfGet")
+    //@SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentView = LayoutInflater.from(activity).inflate(R.layout.fragment_user, container, false)
         firestore = FirebaseFirestore.getInstance()
@@ -67,22 +67,22 @@ class UserFragment : Fragment(){
             }
         }else{
             //Other User Page
-            fragmentView?.account_btn_follow_signout?.text = getString(R.string.follow)
+            fragmentView?.account_btn_follow_signout?.text = activity?.getText(R.string.signout)
             var mainactivity = (activity as MainActivity)
             mainactivity?.toolbar_title_image?.visibility = View.GONE
             mainactivity?.toolbar_username?.visibility = View.VISIBLE
             mainactivity?.toolbar_back_btn?.visibility = View.VISIBLE
 
-            mainactivity?.toolbar_username?.text = arguments!!.getString("userId")
+            mainactivity?.toolbar_username?.text = activity?.getString(R.string.follow)
             mainactivity?.toolbar_back_btn?.setOnClickListener {
                 mainactivity.bottom_navigation.selectedItemId = R.id.action_home
             }
             fragmentView?.account_btn_follow_signout?.setOnClickListener {
-                requestFollw()
+                requestFollow()
             }
         }
         fragmentView?.account_reclerview?.adapter = UserFragmentRecyclerViewAdapter()
-        fragmentView?.account_reclerview?.layoutManager = GridLayoutManager(activity!!, 3)
+        fragmentView?.account_reclerview?.layoutManager = GridLayoutManager(requireActivity(), 3)
 
 
         //버튼 이벤트
@@ -152,7 +152,7 @@ class UserFragment : Fragment(){
 
 
 
-    fun requestFollw(){
+    fun requestFollow(){
         //save data to my account
         var tsDocFollowing = firestore?.collection("users")?.document(uid!!)
         firestore?.runTransaction{ transacion ->
