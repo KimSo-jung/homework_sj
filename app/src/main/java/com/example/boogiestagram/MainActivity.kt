@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 var gridFragment = GridFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_content,gridFragment).commit()
                 return true
+
             }
              */
             R.id.action_add_photo -> {
